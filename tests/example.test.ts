@@ -1,8 +1,9 @@
-const request = require('supertest');
-const app = require('../src/app');
+import request from 'supertest';
+import app from '../src/app';
+import { Server } from 'http';
 
 describe('Example Test Suite', () => {
-  let server;
+  let server: Server;
 
   // Start the server before the tests run
   beforeAll((done) => {
