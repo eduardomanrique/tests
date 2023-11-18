@@ -5,10 +5,9 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "ts-node src/app.ts",
-    "build": "tsc",
-    "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "dev": "tsc && node dist/app.js",
+    "test": "jest",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
