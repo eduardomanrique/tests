@@ -63,15 +63,29 @@ function App() {
     }
   }, [snake, direction, food, gameOver]);
 
+  const restartGame = () => {
+    setSnake([[0, 0]]);
+    setDirection('RIGHT');
+    setFood([5, 5]);
+    setGameOver(false);
+  };
+
   return (
     <div className="App">
-      {gameOver ? <h1>Game Over</h1> : grid.map((row, i) => (
-        <div key={i} className="row">
-          {row.map((cell, j) => (
-            <div key={j} className={`cell ${snake.some(segment => segment[0] === i && segment[1] === j) ? 'snake' : ''} ${food[0] === i && food[1] === j ? 'food' : ''}`}></div>
-          ))}
-        </div>
-      ))}
+      {gameOver ? (
+        <>
+          <h1>Game Over</h1>
+          <button onClick={restartGame}>Play Again</button>
+        </>
+      ) : (
+        grid.map((row, i) => (
+          <div key={i} className="row">
+            {row.map((cell, j) => (
+              <div key={j} className={`cell ${snake.some(segment => segment[0] === i && segment[1] === j) ? 'snake' : ''} ${food[0] === i && food[1] === j ? 'food' : ''}`}></div>
+            ))}
+          </div>
+        ))
+      )}
     </div>
   );
 }
