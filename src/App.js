@@ -8,6 +8,7 @@ function App() {
   const [snake, setSnake] = useState([[0, 0]]);
   const [direction, setDirection] = useState('RIGHT');
   const [food, setFood] = useState([5, 5]);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -40,20 +41,31 @@ function App() {
         default: break;
       }
 
+      if (head[0] < 0 || head[1] < 0 || head[0] >= gridSize || head[1] >= gridSize || newSnake.some(segment => segment[0] === head[0] && segment[1] === head[1])) {
+        setGameOver(true);
+        return;
+      }
+
       newSnake.push(head);
-      newSnake.shift();
+
+      if (head[0] === food[0] && head[1] === food[1]) {
+        setFood([Math.floor(Math.random() * gridSize), Math.floor(Math.random() * gridSize)]);
+      } else {
+        newSnake.shift();
+      }
 
       setSnake(newSnake);
     };
 
-    const interval = setInterval(moveSnake, 200);
-
-    return () => clearInterval(interval);
-  }, [snake, direction]);
+    if (!gameOver) {
+      const interval = setInterval(moveSnake, 200);
+      return () => clearInterval(interval);
+    }
+  }, [snake, direction, food, gameOver]);
 
   return (
     <div className="App">
-      {grid.map((row, i) => (
+      {gameOver ? <h1>Game Over</h1> : grid.map((row, i) => (
         <div key={i} className="row">
           {row.map((cell, j) => (
             <div key={j} className={`cell ${snake.some(segment => segment[0] === i && segment[1] === j) ? 'snake' : ''} ${food[0] === i && food[1] === j ? 'food' : ''}`}></div>
