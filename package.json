@@ -4,6 +4,7 @@
   "description": "A simple Snake game built with Node.js and React.",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
