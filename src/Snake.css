@@ -1,0 +1,41 @@
+.Snake {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+
+.snake {
+  background-color: green;
+  border-radius: 50%;
+}
+
+.snake-head {
+  background-color: darkgreen;
+}
+
+.snake-tail {
+  background-color: lightgreen;
+}
+
+.food {
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Add border to the entire game area */
+.Snake {
+  border: 2px solid black;
+  padding: 10px;
+}
