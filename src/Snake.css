@@ -13,7 +13,7 @@
 .cell {
   width: 20px;
   height: 20px;
-  border: 1px solid #ddd;
+  background-color: transparent;
 }
 
 .snake {
@@ -32,4 +32,10 @@
 .food {
   background-color: red;
   border-radius: 50%;
+}
+
+/* Add border to the entire game area */
+.Snake {
+  border: 2px solid black;
+  padding: 10px;
 }
