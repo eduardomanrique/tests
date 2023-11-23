@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const HomePage = () => (
   <div style={{ textAlign: 'center', marginTop: '50px' }}>
     <h1>Welcome to the Game Portal</h1>
-    <Link to="/snake-game">Play Snake Game</Link>
+    <Link to="/snake-game">Play Snake Game</Link><br />
     <Link to="/tetris-game">Play Tetris Game</Link>
   </div>
 );
