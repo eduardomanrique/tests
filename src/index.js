@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Snake from './Snake';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const HomePage = () => (
@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/snake-game">
-          <App />
+          <Snake />
         </Route>
         <Route path="/">
           <HomePage />
