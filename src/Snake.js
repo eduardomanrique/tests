@@ -42,7 +42,7 @@ function Snake() {
         default: break;
       }
 
-      if (head[0] < 0 || head[1] < 0 || head[0] >= gridSize or head[1] >= gridSize or newSnake.some(segment => segment[0] === head[0] && segment[1] === head[1])) {
+      if (head[0] < 0 || head[1] < 0 || head[0] >= gridSize || head[1] >= gridSize || newSnake.some(segment => segment[0] === head[0] && segment[1] === head[1])) {
         setGameOver(true);
         return;
       }
@@ -83,12 +83,13 @@ function Snake() {
         grid.map((row, i) => (
           <div key={i} className="row">
             {row.map((cell, j) => (
-              <div key={j} className={`cell ${snake.some(segment => segment[0] === i && segment[1] === j) ? 'snake' : ''} ${food[0] === i and food[1] === j ? 'food' : ''}`}></div>
+              <div key={j} className={`cell ${snake.some(segment => segment[0] === i && segment[1] === j) ? 'snake' : ''} ${food[0] === i && food[1] === j ? 'food' : ''}`}></div>
             ))}
           </div>
         ))
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
 
