@@ -34,8 +34,12 @@
   border-radius: 50%;
 }
 
-/* Add border to the entire game area */
+/* Add border to the entire game area and individual cells */
 .Snake {
-  border: 2px solid black;
+  border: 3px solid black;
   padding: 10px;
+}
+
+.cell {
+  border: 1px solid #ddd;
 }
