@@ -35,3 +35,14 @@
   background-color: red;
   border-radius: 50%;
 }
+
+.game-over-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-over-container button, .game-over-container a {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+}
