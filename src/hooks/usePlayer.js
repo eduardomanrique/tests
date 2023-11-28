@@ -1,11 +1,11 @@
 import { useState, useCallback } from 'react';
 import { TETROMINOS, randomTetromino } from '../tetrominos';
-import { STAGE_WIDTH, checkCollision } from '../gameHelpers';
+import { STAGE_WIDTH } from '../gameHelpers';
 
 export const usePlayer = () => {
   const [player, setPlayer] = useState({
     pos: { x: 0, y: 0 },
-    tetromino: randomTetromino().shape,
+    tetromino: TETROMINOS[0].shape, // Initialize with a default shape
     collided: false,
   });
 
@@ -18,9 +18,10 @@ export const usePlayer = () => {
   };
 
   const resetPlayer = useCallback(() => {
+    const newTetromino = randomTetromino();
     setPlayer({
       pos: { x: STAGE_WIDTH / 2 - 2, y: 0 },
-      tetromino: randomTetromino().shape,
+      tetromino: newTetromino && newTetromino.shape ? newTetromino.shape : TETROMINOS[0].shape,
       collided: false,
     });
   }, []);
